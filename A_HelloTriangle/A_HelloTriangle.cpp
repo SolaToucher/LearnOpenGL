@@ -102,7 +102,7 @@ int main(){
     glBindBuffer(GL_ARRAY_BUFFER, VBO1);//绑定对象
     glBufferData(GL_ARRAY_BUFFER, sizeof(trangle), trangle, GL_STATIC_DRAW);//将用户定义的数据绑定到缓冲区
 
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3*sizeof(float), (void*)0);//定义定点格式
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3*sizeof(float), (void*)0);//定义顶点格式
     glEnableVertexAttribArray(0);
 
     //glBindBuffer(GL_ARRAY_BUFFER, 0);
