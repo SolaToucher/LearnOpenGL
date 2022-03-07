@@ -134,7 +134,7 @@ vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir){
 
     vec3 reflectDir = reflect(-lightDir, normal);
     float spec = pow(max(dot(viewDir, reflectDir), 0), material.shininess);
-    vec3 specular = spec * light.specular * texture(material.diffuse, TexCoords).rgb;
+    vec3 specular = spec * light.specular * texture(material.specular, TexCoords).rgb;
 
     return ambient + diffuse + specular;
 }

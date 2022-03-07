@@ -16,7 +16,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mod);
 unsigned int loadTexture(const char *path);
 void TextureSet(Shader &myShader);
 void VertexSet();
-void setPointLight(Shader &myShader, const std::string &name);
+void setPointLight(Shader &myShader, const std::string &name, const int &num);
 
 const unsigned int WIDTG = 800;
 const unsigned int HEIGHT = 600;
@@ -161,7 +161,7 @@ int main(){
         std::string strname = "pointLights[0].";
         for(int i = 0; i < 4; ++i){
             strname[12] = '0'+i;
-            setPointLight(myShader, strname);
+            setPointLight(myShader, strname, i);
         }
 
         myShader.setInt("spotLight.show", isShow);
@@ -224,8 +224,8 @@ int main(){
     return 0;
 }
 
-void setPointLight(Shader &myShader, const std::string &name){
-    myShader.setVec3((name+"position").c_str(), pointLightPositions[0]);
+void setPointLight(Shader &myShader, const std::string &name, const int &num){
+    myShader.setVec3((name+"position").c_str(), pointLightPositions[num]);
     myShader.setVec3((name+"ambient").c_str(), 0.05f, 0.05f, 0.05f);
     myShader.setVec3((name+"diffuse").c_str(), 0.8f, 0.8f, 0.8f);
     myShader.setVec3((name+"specular").c_str(), 1.0f, 1.0f, 1.0f);
