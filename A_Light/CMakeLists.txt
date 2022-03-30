@@ -34,7 +34,7 @@ if(assimp_FOUND)
     message ("assimp found")
     include_directories(${assimp_INCLUDE_DIRS})
 else()
-    message(FATAL_ERROR "Cannot find glad")
+    message(FATAL_ERROR "Cannot find assimp")
 endif()
 
 aux_source_directory(. DIR_SRCS)

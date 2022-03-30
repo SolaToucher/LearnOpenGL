@@ -161,11 +161,11 @@ private:
     // the required info is returned as a Texture struct.
     vector<Texture> loadMaterialTextures(aiMaterial *mat, aiTextureType type, string typeName){
         vector<Texture> textures;
-        cout << mat->GetName().C_Str() << "    " << mat->GetTextureCount(type) << endl;
+        // cout << mat->GetName().C_Str() << "    " << mat->GetTextureCount(type) << endl;
         for(unsigned int i = 0; i < mat->GetTextureCount(type); i++){
             aiString str;
             mat->GetTexture(type, i, &str);
-            cout << mat->GetName().C_Str();
+            // cout << mat->GetName().C_Str();
             // check if texture was loaded before and if so, continue to next iteration: skip loading a new texture
             bool skip = false;
             for(unsigned int j = 0; j < textures_loaded.size(); j++){
