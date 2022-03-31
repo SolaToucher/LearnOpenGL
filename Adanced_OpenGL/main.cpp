@@ -20,12 +20,12 @@ void TextureSet(Shader &myShader);
 void VertexSet();
 void setPointLight(Shader &myShader, const std::string &name);
 
-const unsigned int WIDTG = 800;
+const unsigned int WIDTH = 800;
 const unsigned int HEIGHT = 600;
 
 float deltaTime = 0.0f; // 当前帧与上一帧的时间差
 float lastFrame = 0.0f; // 上一帧的时间
-float lastX = WIDTG/2, lastY = HEIGHT/2;
+float lastX = WIDTH/2, lastY = HEIGHT/2;
 bool firstMouse = true;
 
 int isShow = 1;
@@ -117,7 +117,7 @@ int main(){
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 
-    GLFWwindow* window = glfwCreateWindow(WIDTG, HEIGHT, "LearnOpenGL", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "LearnOpenGL", NULL, NULL);
     if (window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -155,7 +155,7 @@ int main(){
     // -------------------------
     Shader myShader("../objshader.vs.glsl", "../objshader.fs.glsl");
     Shader lightShader("../lightshader.vs.glsl", "../lightshader.fs.glsl");
-    Shader outlineShader("../objshader.vs.glsl", "../outlineshader.fs.glsl");
+    Shader outlineShader("../objshader.vs.glsl", "../objshader.fs.glsl");
 
     VertexSet();
 
@@ -183,7 +183,7 @@ int main(){
         lastFrame = currentFrame;
 
         glm::mat4 view = camera.GetViewMatrix();
-        glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), 1.f*WIDTG/HEIGHT, 0.1f, 100.f);
+        glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), 1.f*WIDTH/HEIGHT, 0.1f, 100.f);
 
         myShader.use();
         myShader.setMat4("view", view);
