@@ -155,7 +155,7 @@ int main(){
     // -------------------------
     Shader myShader("../objshader.vs.glsl", "../objshader.fs.glsl");
     Shader lightShader("../lightshader.vs.glsl", "../lightshader.fs.glsl");
-    Shader outlineShader("../objshader.vs.glsl", "../objshader.fs.glsl");
+    Shader outlineShader("../objshader.vs.glsl", "../outlineshader.fs.glsl");
 
     VertexSet();
 
@@ -207,13 +207,12 @@ int main(){
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, cubeTexture); 	
         model = glm::translate(model, glm::vec3(-1.0f, 0.00001f, -1.0f));
-        model = glm::scale(model, glm::vec3(0.98f));
+        // model = glm::scale(model, glm::vec3(0.98f));
         myShader.setMat4("model", model);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(2.0f, 0.00001f, 0.0f));
-
-        model = glm::scale(model, glm::vec3(0.98f));
+        // model = glm::scale(model, glm::vec3(0.98f));
         myShader.setMat4("model", model);
         glDrawArrays(GL_TRIANGLES, 0, 36);
 
@@ -252,10 +251,12 @@ int main(){
         glBindTexture(GL_TEXTURE_2D, cubeTexture);
         model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(-1.0f, 0.00001f, -1.0f));
+        model = glm::scale(model, glm::vec3(1.02f));
         outlineShader.setMat4("model", model);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(2.0f, 0.00001f, 0.0f));
+        model = glm::scale(model, glm::vec3(1.02f));
         outlineShader.setMat4("model", model);
         glDrawArrays(GL_TRIANGLES, 0, 36);
 
