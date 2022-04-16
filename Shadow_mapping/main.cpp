@@ -80,6 +80,7 @@ int main()
 
     // build and compile shaders
     // -------------------------
+    Shader shader("../shadow_mapping.vs", "../shadow_mapping.fs");
     Shader simpleDepthShader("../shadow_mapping_depth.vs", "../shadow_mapping_depth.fs");
     Shader debugDepthQuad("../debug_quad.vs", "../debug_quad.fs");
 
@@ -138,6 +139,9 @@ int main()
 
     // shader configuration
     // --------------------
+    shader.use();
+    shader.setInt("diffuseTexure", 0);
+    shader.setInt("shadowMap", 1);
     debugDepthQuad.use();
     debugDepthQuad.setInt("depthMap", 0);
 

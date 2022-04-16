@@ -280,7 +280,6 @@ int main(){
         myShader.setMat4("model", model);
         
         glDrawArrays(GL_TRIANGLES, 0, 36);
-        
 
 
         // floor
@@ -320,11 +319,12 @@ int main(){
         glBindVertexArray(0);
         glDepthFunc(GL_LESS);
 
-        glBindFramebuffer(GL_FRAMEBUFFER, 0); // 返回默认
+        // use framebuffer
+        glBindFramebuffer(GL_FRAMEBUFFER, 0);
         glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        screenShader.use();  
+        screenShader.use();
         glBindVertexArray(quadVAO);
         glDisable(GL_DEPTH_TEST);
         glBindTexture(GL_TEXTURE_2D, textureColorbuffer);
